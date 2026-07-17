@@ -73,22 +73,33 @@ Last updated: 2026-07-17
 
 ## Task 6 — Build the eBook product experience
 
-- [ ] Create the custom single-product template.
-- [ ] Present the cover, description, author, price, and metadata.
-- [ ] Add a strong purchase call to action.
-- [ ] Add benefits and trust indicators.
+- [x] Create the initial dynamic eBook detail template.
+- [x] Present the cover, description, price, category, and learning outcomes.
+- [x] Add quantity increase/decrease controls with accessible limits.
+- [x] Add a working browser-persistent Add to Cart interaction and cart count.
+- [x] Add a strong purchase call to action.
+- [x] Add benefits and trust indicators.
 - [ ] Add related eBooks.
-- [ ] Test desktop, tablet, and mobile layouts.
+- [!] Connect the detail page and cart to WooCommerce after WooCommerce is installed.
+- [~] Test desktop, tablet, and mobile layouts.
 
 ## Task 7 — Build the custom checkout
 
-- [ ] Create a mobile-first one-page checkout.
-- [ ] Build customer information fields.
-- [ ] Build a professional order summary.
-- [ ] Build payment method selection.
-- [ ] Add server-side and client-side validation.
-- [ ] Add accessible error, loading, and success states.
-- [ ] Add trust and secure-payment indicators.
+- [x] Build the responsive frontend cart page.
+- [x] Render saved eBooks with cover, title, unit price, and line total.
+- [x] Add cart quantity updates, remove-item, clear-cart, totals, and empty state.
+- [!] Connect the cart to WooCommerce sessions after WooCommerce is installed.
+- [x] Create the initial mobile-first one-page checkout.
+- [x] Build customer information fields.
+- [x] Build a live professional order summary from the browser cart.
+- [x] Build CC Avenue and cryptocurrency payment selection interfaces.
+- [~] Add client-side validation; server-side processing follows with the payment plugin.
+- [x] Add accessible error and success states.
+- [x] Create a dedicated branded thank-you page with payment-specific next steps.
+- [x] Redirect successful frontend checkout submissions to the thank-you page.
+- [x] Add trust and secure-payment indicators.
+- [!] Connect real CC Avenue redirection after merchant credentials are supplied.
+- [!] Store crypto submissions and orders server-side after wallet configuration is supplied.
 
 ## Task 8 — Develop the crypto payment workflow
 

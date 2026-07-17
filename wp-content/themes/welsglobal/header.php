@@ -35,6 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</nav>
 		<div class="hidden items-center gap-3 lg:flex">
 			<a class="rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold transition hover:border-white/40 hover:bg-white/10" href="<?php echo esc_url( home_url( '/my-account/' ) ); ?>"><?php esc_html_e( 'My library', 'welsglobal' ); ?></a>
+			<a class="relative grid size-11 place-items-center rounded-full border border-white/20 transition hover:border-white/40 hover:bg-white/10" href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" aria-label="<?php esc_attr_e( 'View cart', 'welsglobal' ); ?>">
+				<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+				<span class="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-brand-gold text-[10px] font-black text-brand-navy" data-cart-count>0</span>
+			</a>
 			<a class="rounded-full bg-brand-gold px-5 py-2.5 text-sm font-bold text-brand-navy transition hover:bg-amber-300" href="#collection"><?php esc_html_e( 'Explore eBooks', 'welsglobal' ); ?></a>
 		</div>
 		<button class="grid size-11 place-items-center rounded-full border border-white/20 lg:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">

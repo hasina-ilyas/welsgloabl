@@ -14,8 +14,10 @@ $ebooks = array(
 		'eyebrow'     => __( 'Content Strategy', 'welsglobal' ),
 		'description' => __( 'Build a focused content engine that attracts the right audience, earns trust, and turns attention into measurable business growth.', 'welsglobal' ),
 		'price'       => '15',
-		'color'       => 'from-[#122b4d] via-[#145da0] to-[#071a33]',
-		'accent'      => 'text-cyan-200',
+		'color'       => 'from-[#126aa8] via-[#0a477c] to-[#061b35]',
+		'accent'      => 'text-[#76dcff]',
+		'glow'        => 'bg-cyan-300',
+		'mark'        => 'CM',
 		'number'      => '01',
 		'featured'    => false,
 	),
@@ -24,8 +26,10 @@ $ebooks = array(
 		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
 		'description' => __( 'Turn digital complexity into a clear roadmap with practical frameworks for channels, campaigns, audiences, and sustainable results.', 'welsglobal' ),
 		'price'       => '40',
-		'color'       => 'from-[#7a4b14] via-[#d9a441] to-[#392307]',
+		'color'       => 'from-[#e7b54d] via-[#a96812] to-[#3b2107]',
 		'accent'      => 'text-amber-100',
+		'glow'        => 'bg-amber-300',
+		'mark'        => 'DM',
 		'number'      => '02',
 		'featured'    => true,
 	),
@@ -34,8 +38,10 @@ $ebooks = array(
 		'eyebrow'     => __( 'Social Media', 'welsglobal' ),
 		'description' => __( 'Stop posting without purpose. Design a repeatable social strategy that connects brand goals, compelling content, and audience action.', 'welsglobal' ),
 		'price'       => '25',
-		'color'       => 'from-[#4b1d4a] via-[#9b4f96] to-[#251023]',
+		'color'       => 'from-[#bc64b4] via-[#71366e] to-[#281128]',
 		'accent'      => 'text-fuchsia-100',
+		'glow'        => 'bg-fuchsia-300',
+		'mark'        => 'SM',
 		'number'      => '03',
 		'featured'    => false,
 	),
@@ -105,45 +111,84 @@ $ebooks = array(
 			<p class="max-w-md text-sm leading-7 text-slate-600"><?php esc_html_e( 'Each guide turns proven strategic thinking into practical steps you can apply to your business immediately.', 'welsglobal' ); ?></p>
 		</div>
 
-		<div class="mt-10 flex gap-2 overflow-x-auto pb-2" role="group" aria-label="<?php esc_attr_e( 'Filter eBooks', 'welsglobal' ); ?>">
-			<button class="shrink-0 rounded-full bg-brand-navy px-5 py-2.5 text-sm font-bold text-white" type="button" data-ebook-filter="all" aria-pressed="true"><?php esc_html_e( 'All guides', 'welsglobal' ); ?></button>
-			<button class="shrink-0 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-600" type="button" data-ebook-filter="Digital Marketing" aria-pressed="false"><?php esc_html_e( 'Digital marketing', 'welsglobal' ); ?></button>
-			<button class="shrink-0 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-600" type="button" data-ebook-filter="Content Strategy" aria-pressed="false"><?php esc_html_e( 'Content strategy', 'welsglobal' ); ?></button>
-			<button class="shrink-0 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-600" type="button" data-ebook-filter="Social Media" aria-pressed="false"><?php esc_html_e( 'Social media', 'welsglobal' ); ?></button>
+		<div class="mt-10 rounded-2xl border border-slate-200/80 bg-white/80 p-2 shadow-sm backdrop-blur" role="group" aria-label="<?php esc_attr_e( 'Filter eBooks', 'welsglobal' ); ?>">
+			<div class="flex gap-2 overflow-x-auto">
+				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl bg-brand-navy px-4 py-3 text-sm font-bold text-white shadow-md shadow-brand-navy/15 transition" type="button" data-ebook-filter="all" aria-pressed="true">
+					<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16M8 7h8"/></svg>
+					<?php esc_html_e( 'All guides', 'welsglobal' ); ?>
+					<span class="rounded-md bg-white/15 px-1.5 py-0.5 text-[10px]" data-filter-count>3</span>
+				</button>
+				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Digital Marketing" aria-pressed="false">
+					<span class="size-2 rounded-full bg-amber-400"></span>
+					<?php esc_html_e( 'Digital marketing', 'welsglobal' ); ?>
+					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
+				</button>
+				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Content Strategy" aria-pressed="false">
+					<span class="size-2 rounded-full bg-cyan-400"></span>
+					<?php esc_html_e( 'Content strategy', 'welsglobal' ); ?>
+					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
+				</button>
+				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Social Media" aria-pressed="false">
+					<span class="size-2 rounded-full bg-fuchsia-400"></span>
+					<?php esc_html_e( 'Social media', 'welsglobal' ); ?>
+					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
+				</button>
+			</div>
 		</div>
 
 		<div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			<?php foreach ( $ebooks as $ebook ) : ?>
-				<article id="book-<?php echo esc_attr( $ebook['number'] ); ?>" class="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6" data-ebook-card data-category="<?php echo esc_attr( $ebook['eyebrow'] ); ?>">
+				<article id="book-<?php echo esc_attr( $ebook['number'] ); ?>" class="group relative flex flex-col overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white p-4 shadow-sm transition duration-500 hover:-translate-y-1.5 hover:border-brand-gold/40 hover:shadow-card sm:p-5" data-ebook-card data-category="<?php echo esc_attr( $ebook['eyebrow'] ); ?>">
 					<?php if ( $ebook['featured'] ) : ?>
-						<span class="absolute right-4 top-4 z-10 rounded-full bg-brand-gold px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-brand-navy"><?php esc_html_e( 'Bestseller', 'welsglobal' ); ?></span>
+						<span class="absolute right-7 top-7 z-20 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-wider text-brand-navy shadow-lg">
+							<svg class="size-3 text-brand-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.8 5.67 6.26.91-4.53 4.42 1.07 6.24L12 16.8l-5.6 2.94 1.07-6.24-4.53-4.42 6.26-.91z"/></svg>
+							<?php esc_html_e( 'Bestseller', 'welsglobal' ); ?>
+						</span>
 					<?php endif; ?>
-					<div class="relative overflow-hidden rounded-2xl bg-slate-100 px-10 py-9 sm:px-12">
-						<div class="absolute left-5 top-5 size-16 rounded-full bg-white/50 blur-xl"></div>
-						<div class="aspect-[3/4.15] bg-gradient-to-br <?php echo esc_attr( $ebook['color'] ); ?> p-5 text-white shadow-[10px_15px_25px_rgba(7,26,51,.28)] transition duration-300 group-hover:-rotate-1 group-hover:scale-[1.025]">
-							<div class="flex h-full flex-col border border-white/25 p-4">
-								<span class="text-[8px] font-extrabold uppercase tracking-[.25em] <?php echo esc_attr( $ebook['accent'] ); ?>">WELSGLOBAL</span>
-								<div class="mt-auto">
-									<span class="mb-2 block text-[9px] font-bold uppercase tracking-widest <?php echo esc_attr( $ebook['accent'] ); ?>"><?php echo esc_html( $ebook['eyebrow'] ); ?></span>
-									<h3 class="font-display text-lg font-bold leading-tight sm:text-xl"><?php echo esc_html( $ebook['title'] ); ?></h3>
-									<span class="mt-5 block text-[9px] uppercase tracking-[.18em] opacity-70">Executive Series · <?php echo esc_html( $ebook['number'] ); ?></span>
+					<div class="relative isolate overflow-hidden rounded-2xl bg-[#edf1f5] px-7 py-8 sm:px-10 sm:py-10">
+						<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_20%,white,transparent_55%)]"></div>
+						<div class="absolute bottom-5 left-1/2 -z-10 h-8 w-3/5 -translate-x-1/2 rounded-full bg-brand-navy/25 blur-xl"></div>
+						<div class="relative mx-auto aspect-[3/4.2] max-w-[15rem] transition duration-500 group-hover:-translate-y-1 group-hover:rotate-[-1deg]">
+							<div class="absolute -right-2 bottom-1 top-1 w-5 rounded-r-md bg-gradient-to-r from-slate-400 to-white shadow-lg"></div>
+							<div class="absolute -bottom-2 left-2 right-0 h-4 skew-x-[38deg] rounded-b bg-slate-300"></div>
+							<div class="relative h-full overflow-hidden rounded-l-sm rounded-r-md bg-gradient-to-br <?php echo esc_attr( $ebook['color'] ); ?> p-5 text-white shadow-[13px_17px_24px_rgba(7,26,51,.32)]">
+								<div class="absolute -right-16 -top-16 size-44 rounded-full border-[28px] border-white/10"></div>
+								<div class="absolute -bottom-10 -left-10 size-32 rotate-45 border-[18px] border-white/10"></div>
+								<div class="absolute right-5 top-1/2 h-px w-20 rotate-[-35deg] bg-white/25"></div>
+								<div class="relative flex h-full flex-col">
+									<div class="flex items-center justify-between">
+										<span class="text-[8px] font-extrabold uppercase tracking-[.25em] <?php echo esc_attr( $ebook['accent'] ); ?>">WELSGLOBAL</span>
+										<span class="grid size-8 place-items-center rounded-full border border-white/25 bg-black/10 text-[9px] font-black"><?php echo esc_html( $ebook['mark'] ); ?></span>
+									</div>
+									<div class="mt-7 h-0.5 w-10 <?php echo esc_attr( $ebook['glow'] ); ?>"></div>
+									<div class="mt-auto">
+										<span class="mb-2 block text-[8px] font-bold uppercase tracking-[.2em] <?php echo esc_attr( $ebook['accent'] ); ?>"><?php echo esc_html( $ebook['eyebrow'] ); ?></span>
+										<h3 class="max-w-[12rem] font-display text-xl font-bold leading-[1.08] sm:text-2xl"><?php echo esc_html( $ebook['title'] ); ?></h3>
+										<div class="mt-5 flex items-center justify-between border-t border-white/20 pt-3">
+											<span class="text-[8px] uppercase tracking-[.18em] opacity-75"><?php esc_html_e( 'Executive Series', 'welsglobal' ); ?></span>
+											<span class="font-display text-lg font-bold opacity-50"><?php echo esc_html( $ebook['number'] ); ?></span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="flex flex-1 flex-col pt-6">
+					<div class="flex flex-1 flex-col px-1 pt-5">
 						<div class="flex items-center justify-between gap-4">
 							<span class="text-xs font-bold uppercase tracking-[.16em] text-brand-blue"><?php echo esc_html( $ebook['eyebrow'] ); ?></span>
 							<span class="inline-flex items-center gap-1 text-xs font-bold text-amber-500" aria-label="<?php esc_attr_e( 'Five star rating', 'welsglobal' ); ?>">★★★★★</span>
 						</div>
 						<h3 class="mt-3 font-display text-xl font-bold leading-snug text-brand-navy"><?php echo esc_html( $ebook['title'] ); ?></h3>
 						<p class="mt-3 text-sm leading-6 text-slate-600"><?php echo esc_html( $ebook['description'] ); ?></p>
-						<div class="mt-auto flex items-center justify-between gap-4 pt-6">
+						<div class="mt-auto flex items-center justify-between gap-4 border-t border-slate-100 pt-5">
 							<div>
 								<span class="block text-xs text-slate-500"><?php esc_html_e( 'Digital eBook', 'welsglobal' ); ?></span>
 								<span class="text-2xl font-bold text-brand-navy">$<?php echo esc_html( $ebook['price'] ); ?></span>
 							</div>
-							<a class="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-blue" href="<?php echo esc_url( home_url( '/checkout/?ebook=' . $ebook['number'] ) ); ?>"><?php esc_html_e( 'Get the guide', 'welsglobal' ); ?></a>
+							<a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-blue" href="<?php echo esc_url( home_url( '/ebook-details/?ebook=' . $ebook['number'] ) ); ?>">
+								<?php esc_html_e( 'View details', 'welsglobal' ); ?>
+								<svg class="size-3.5 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+							</a>
 						</div>
 					</div>
 				</article>
