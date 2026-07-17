@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@source "../../**/*.php";
+@source "../../../plugins/welsglobal-ebooks/**/*.php";
+
+@theme {
+	--color-brand-navy: #071a33;
+	--color-brand-blue: #145da0;
+	--color-brand-gold: #d9a441;
+	--color-brand-cream: #f7f3ea;
+	--font-sans: "Inter", "Segoe UI", sans-serif;
+	--font-display: "Manrope", "Segoe UI", sans-serif;
+	--shadow-card: 0 18px 50px rgb(7 26 51 / 0.12);
+}
+
+@layer base {
+	:focus-visible {
+		outline: 3px solid var(--color-brand-gold);
+		outline-offset: 3px;
+	}
+}

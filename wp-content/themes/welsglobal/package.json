@@ -1,0 +1,13 @@
+{
+  "name": "welsglobal-theme",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./assets/src/app.css -o ./assets/dist/app.css --watch",
+    "build": "tailwindcss -i ./assets/src/app.css -o ./assets/dist/app.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
