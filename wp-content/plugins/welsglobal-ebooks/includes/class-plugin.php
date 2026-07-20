@@ -41,6 +41,7 @@ final class Plugin {
 	 */
 	private function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+		add_action( 'plugins_loaded', array( $this, 'boot_woocommerce_modules' ), 20 );
 		add_action( 'admin_notices', array( $this, 'maybe_show_woocommerce_notice' ) );
 	}
 
@@ -55,6 +56,40 @@ final class Plugin {
 			false,
 			dirname( plugin_basename( WELSGLOBAL_EBOOKS_FILE ) ) . '/languages'
 		);
+	}
+
+	/**
+	 * Boot modules that depend on WooCommerce.
+	 *
+	 * @return void
+	 */
+	public function boot_woocommerce_modules() {
+		if ( ! class_exists( 'WooCommerce' ) || ! class_exists( 'WC_Payment_Gateway' ) ) {
+			return;
+		}
+
+		require_once WELSGLOBAL_EBOOKS_PATH . 'includes/class-crypto-gateway.php';
+		require_once WELSGLOBAL_EBOOKS_PATH . 'includes/class-ccavenue-gateway.php';
+		require_once WELSGLOBAL_EBOOKS_PATH . 'includes/class-order-admin.php';
+		require_once WELSGLOBAL_EBOOKS_PATH . 'includes/class-email-branding.php';
+
+		add_filter( 'woocommerce_payment_gateways', array( $this, 'register_payment_gateways' ) );
+
+		Order_Admin::instance();
+		Email_Branding::instance();
+	}
+
+	/**
+	 * Register the custom payment gateways.
+	 *
+	 * @param array $gateways Payment gateway classes.
+	 * @return array
+	 */
+	public function register_payment_gateways( $gateways ) {
+		$gateways[] = Crypto_Gateway::class;
+		$gateways[] = CCAvenue_Gateway::class;
+
+		return $gateways;
 	}
 
 	/**

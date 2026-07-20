@@ -1,6 +1,6 @@
 # WELSGLOBAL eBooks — Implementation Tracker
 
-Last updated: 2026-07-17
+Last updated: 2026-07-20
 
 ## Status legend
 
@@ -11,9 +11,9 @@ Last updated: 2026-07-17
 
 ## Progress
 
-- Main tasks completed: **2 / 14**
-- Current phase: **Storefront**
-- Current task: **Task 5 — Build the custom eBooks page**
+- Main tasks completed: **5 / 14**
+- Current phase: **External Integration & Production Inputs**
+- Current task: **Credential/content-dependent payment and delivery verification**
 
 ## Task 1 — Audit the existing WordPress project
 
@@ -52,13 +52,37 @@ Last updated: 2026-07-17
 - [x] Add development and production build scripts.
 - [x] Build and enqueue the production stylesheet.
 
+## Task 3A — Align with the live WELSGLOBAL brand
+
+Primary reference: `https://welsglobal.com/ebooks/`
+
+- [x] Review the supplied technical assessment for brand-related requirements.
+- [x] Review the live WELSGLOBAL website and eBook catalog direction.
+- [x] Create a brand-reference inventory covering logo, colors, typography, buttons, icons, imagery, spacing, and tone of voice.
+- [x] Update the local scalable WELSGLOBAL wordmark to match the supplied official divider-free logo composition.
+- [x] Replace the temporary `WG` logo treatment across the header and footer.
+- [x] Map the supplied forest-green, white, and warm-beige identity to reusable Tailwind theme tokens.
+- [x] Replace the estimated forest colors with the pixel-verified logo charcoal (`#17241f`) and deep charcoal (`#162420`) across the website and branded emails.
+- [x] Identify and document the closest heading, body, and accent typography pending official font specifications.
+- [x] Standardize the initial buttons, labels, cards, borders, shadows, spacing, and interaction states.
+- [x] Align the eBook section heading and supporting copy with “The WelsGlobal Executive Strategy Series.”
+- [x] Correct all three product categories to match the official live catalog metadata.
+- [x] Verify and use the official product titles and prices.
+- [~] Obtain or recreate approved product-cover assets based on the official source material.
+- [x] Add the verified author information for Wella Mañabo to the detail experience.
+- [!] Confirm whether the “complimentary Content Marketing Workbook with every purchase” offer applies to this assessment store.
+- [ ] If approved, add the workbook offer consistently to landing, detail, cart, checkout, and thank-you pages.
+- [x] Audit the eBooks landing, detail, cart, checkout, and thank-you pages for initial brand consistency.
+- [x] Rebuild Tailwind CSS and visually test the brand-aligned pages on desktop and mobile; formal cross-browser approval remains in QA.
+- [x] Record all inferred brand decisions separately from officially verified brand assets.
+
 ## Task 4 — Create the eBook data model
 
-- [!] Install and activate WooCommerce.
-- [ ] Configure downloadable and virtual eBook products.
-- [ ] Define required product fields and metadata.
-- [ ] Add eBook categories and taxonomy behavior.
-- [ ] Configure protected product files.
+- [x] Install and activate WooCommerce.
+- [x] Configure the three official products as downloadable and virtual eBooks.
+- [x] Define the initial required product fields, SKUs, descriptions, and pricing metadata.
+- [x] Add the verified Digital Marketing product category.
+- [!] Configure protected product files when the approved final eBook files are supplied.
 - [!] Add real products, covers, prices, and files when supplied.
 
 ## Task 5 — Build the custom eBooks page
@@ -79,100 +103,104 @@ Last updated: 2026-07-17
 - [x] Add a working browser-persistent Add to Cart interaction and cart count.
 - [x] Add a strong purchase call to action.
 - [x] Add benefits and trust indicators.
-- [ ] Add related eBooks.
-- [!] Connect the detail page and cart to WooCommerce after WooCommerce is installed.
-- [~] Test desktop, tablet, and mobile layouts.
+- [x] Add related eBooks from the verified series catalog.
+- [x] Connect the detail-page quantity and Add to Cart controls to WooCommerce.
+- [x] Fix the restored custom Add to Cart interaction so it adds the selected quantity without redirecting away from the book page.
+- [x] Test the initial product experience at desktop and mobile viewport sizes.
 
 ## Task 7 — Build the custom checkout
 
 - [x] Build the responsive frontend cart page.
 - [x] Render saved eBooks with cover, title, unit price, and line total.
 - [x] Add cart quantity updates, remove-item, clear-cart, totals, and empty state.
-- [!] Connect the cart to WooCommerce sessions after WooCommerce is installed.
+- [x] Connect the cart to WooCommerce sessions and server-calculated totals.
 - [x] Create the initial mobile-first one-page checkout.
 - [x] Build customer information fields.
-- [x] Build a live professional order summary from the browser cart.
+- [x] Build a live professional order summary from the WooCommerce cart.
 - [x] Build CC Avenue and cryptocurrency payment selection interfaces.
 - [~] Add client-side validation; server-side processing follows with the payment plugin.
 - [x] Add accessible error and success states.
 - [x] Create a dedicated branded thank-you page with payment-specific next steps.
 - [x] Redirect successful frontend checkout submissions to the thank-you page.
 - [x] Add trust and secure-payment indicators.
+- [x] Restore the original custom Tailwind cart and checkout screen designs while retaining the current brand palette and logo.
 - [!] Connect real CC Avenue redirection after merchant credentials are supplied.
 - [!] Store crypto submissions and orders server-side after wallet configuration is supplied.
 
 ## Task 8 — Develop the crypto payment workflow
 
-- [ ] Add USDT, BTC, and ETH configuration.
-- [ ] Add network and wallet address configuration.
-- [ ] Calculate and display the payable crypto amount.
-- [ ] Display wallet details and QR codes.
-- [ ] Add copy-to-clipboard interactions.
-- [ ] Collect the buyer name, email, and transaction hash.
-- [ ] Validate, sanitize, and securely store submissions.
-- [ ] Prevent duplicate transaction submissions.
+- [x] Add USDT, BTC, and ETH gateway configuration.
+- [x] Add administrator-controlled network and wallet address configuration.
+- [!] Calculate and display the payable crypto amount after the approved conversion source and pricing rules are supplied.
+- [~] Display configured wallet details; production QR generation follows after wallet approval.
+- [~] Add copy-to-clipboard interactions to the custom prototype; connect them to the WooCommerce gateway after wallet approval.
+- [x] Collect buyer details through WooCommerce and collect the transaction hash in the crypto gateway.
+- [x] Validate, sanitize, and securely store submissions in WooCommerce order metadata.
+- [x] Prevent duplicate transaction-hash submissions.
 - [!] Add production wallet addresses and networks when supplied.
 
 ## Task 9 — Develop crypto administration
 
-- [ ] Add a WordPress admin transaction screen.
-- [ ] Add pending, paid, rejected, and delivered statuses.
-- [ ] Add transaction details and admin notes.
-- [ ] Add secure approve and reject actions.
-- [ ] Generate or update the WooCommerce order after approval.
-- [ ] Record the administrator and verification time.
-- [ ] Add admin filtering and search.
+- [x] Store crypto transactions as WooCommerce orders in the WordPress administration area.
+- [x] Use WooCommerce on-hold, processing/completed, and failed statuses for pending, paid/delivered, and rejected transactions.
+- [x] Add transaction details and WooCommerce admin notes.
+- [x] Add permission-protected WooCommerce order actions to verify or reject transactions.
+- [x] Generate the WooCommerce order before verification and complete payment after approval.
+- [x] Record the administrator and verification/rejection time.
+- [~] Use WooCommerce order filtering/search; add dedicated crypto filters if the order volume requires them.
 
 ## Task 10 — Integrate CC Avenue
 
-- [ ] Create the CC Avenue WooCommerce gateway.
-- [ ] Build secure request generation.
-- [ ] Build encrypted response verification.
-- [ ] Handle success, failure, cancellation, and retry flows.
-- [ ] Prevent duplicate callbacks and duplicate orders.
-- [ ] Store gateway transaction references.
+- [x] Confirm that CC Avenue supports secure hosted/iframe WooCommerce payment processing.
+- [x] Document required Merchant ID, Access Code, Working Key, regional endpoints, and callback inputs.
+- [x] Create the CC Avenue WooCommerce gateway.
+- [x] Build secure server-side request generation with configurable regional sandbox/live endpoints.
+- [x] Build encrypted response verification with order key, amount, and currency checks.
+- [x] Handle success, failure, cancellation, and retry flows.
+- [x] Make successful callbacks idempotent to prevent duplicate payment processing.
+- [x] Store gateway tracking IDs, bank references, status, and order notes.
 - [!] Complete sandbox testing when credentials are supplied.
 - [!] Complete production testing when live credentials are supplied.
 
 ## Task 11 — Implement secure eBook delivery
 
-- [ ] Prevent direct public access to protected eBook files.
-- [ ] Generate signed, expiring download links.
-- [ ] Enforce customer, order, expiry, and download-limit checks.
-- [ ] Stream authorized downloads securely.
-- [ ] Record delivery and download activity.
-- [ ] Provide clear expired or invalid-link messages.
+- [x] Configure WooCommerce forced-download delivery to prevent direct URLs from being exposed in customer emails.
+- [x] Use WooCommerce protected download permissions and generated customer links.
+- [~] Enforce order authorization now; configure expiry and download limits when final files are supplied.
+- [x] Use WooCommerce-controlled file streaming for authorized downloads.
+- [x] Use WooCommerce download logs to record delivery/download activity.
+- [x] Use WooCommerce invalid/expired download handling.
 
 ## Task 12 — Create the email system
 
-- [ ] Create branded, responsive HTML email templates.
-- [ ] Send crypto-submission confirmation.
-- [ ] Send payment confirmation and secure download delivery.
-- [ ] Send rejected or failed-payment notices.
-- [ ] Send administrator notifications.
-- [ ] Test email rendering and delivery behavior.
+- [x] Apply WELSGLOBAL styling to responsive WooCommerce HTML email templates.
+- [x] Use the WooCommerce on-hold email as the crypto-submission confirmation with a custom subject.
+- [x] Use WooCommerce payment confirmation and downloadable-product delivery emails.
+- [x] Use WooCommerce failed-order communication and order notes for rejected payments.
+- [x] Use WooCommerce new-order and failed-order administrator notifications.
+- [!] Test external email rendering and delivery after SMTP or transactional email credentials are supplied.
 
 ## Task 13 — Test, secure, and optimize
 
-- [ ] Run PHP syntax and WordPress coding checks.
-- [ ] Test responsive behavior and supported browsers.
+- [x] Run PHP syntax checks successfully across all custom theme/plugin PHP files.
+- [~] Test initial responsive behavior; complete supported-browser testing remains.
 - [ ] Test payment success, failure, cancellation, and duplicate callbacks.
-- [ ] Test validation, sanitization, nonces, and permissions.
+- [~] Test initial validation, sanitization, and permissions; full payment-flow security testing remains.
 - [ ] Test secure links, expiry, and download limits.
-- [ ] Test accessibility and keyboard behavior.
-- [ ] Optimize Tailwind output, assets, database queries, and caching.
-- [ ] Confirm production error handling and logging.
+- [~] Add semantic labels, focus states, and keyboard-operable controls; complete accessibility audit remains.
+- [x] Build minified Tailwind production output and use WooCommerce server-side product/cart queries.
+- [~] Add safe unavailable states and WooCommerce logging foundations; production monitoring configuration remains.
 
 ## Task 14 — Prepare assessment deliverables
 
-- [ ] Write the project README.
-- [ ] Write installation and configuration instructions.
-- [ ] Document Tailwind development and production builds.
-- [ ] Document crypto and CC Avenue setup.
-- [ ] Capture completed-page screenshots.
-- [ ] Prepare the 5–10 minute walkthrough outline.
-- [ ] Prepare a live demo deployment checklist.
-- [ ] Complete the final acceptance checklist.
+- [x] Write the project README.
+- [x] Write installation and configuration instructions.
+- [x] Document Tailwind development and production builds.
+- [x] Document crypto and CC Avenue setup and credential-dependent limitations.
+- [x] Capture completed-page desktop and mobile screenshots under `docs/screenshots`.
+- [x] Prepare the 5–10 minute walkthrough outline.
+- [x] Prepare a live demo deployment checklist.
+- [x] Create the final QA/acceptance checklist.
 
 ## Required inputs and external dependencies
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 285" role="img" aria-labelledby="title desc">
+  <title id="title">WELSGLOBAL</title>
+  <desc id="desc">Official-style white WELSGLOBAL wordmark with circular WG monogram.</desc>
+  <circle cx="142" cy="142" r="128" fill="#ffffff"/>
+  <text x="142" y="184" fill="#17241f" font-family="Arial, Helvetica, sans-serif" font-size="132" font-weight="900" text-anchor="middle" letter-spacing="-18">WG</text>
+  <text x="343" y="190" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="122" font-weight="700" letter-spacing="-8">W</text>
+  <g fill="#ffffff">
+    <path d="M472 98h91v20h-91z"/>
+    <path d="M454 133h109v20H454z"/>
+    <path d="M437 168h126v20H437z"/>
+  </g>
+  <text x="566" y="190" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="122" font-weight="700" letter-spacing="-8">LSGLOBAL</text>
+</svg>

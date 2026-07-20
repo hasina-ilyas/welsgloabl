@@ -4,18 +4,102 @@
 @source "../../../plugins/welsglobal-ebooks/**/*.php";
 
 @theme {
-	--color-brand-navy: #071a33;
-	--color-brand-blue: #145da0;
-	--color-brand-gold: #d9a441;
-	--color-brand-cream: #f7f3ea;
+	--color-brand-navy: #17241f;
+	--color-brand-blue: #162420;
+	--color-brand-gold: #d7b98a;
+	--color-brand-cream: #f4efe6;
 	--font-sans: "Inter", "Segoe UI", sans-serif;
 	--font-display: "Manrope", "Segoe UI", sans-serif;
-	--shadow-card: 0 18px 50px rgb(7 26 51 / 0.12);
+	--shadow-card: 0 18px 50px rgb(23 36 31 / 0.14);
 }
 
 @layer base {
 	:focus-visible {
 		outline: 3px solid var(--color-brand-gold);
 		outline-offset: 3px;
+	}
+}
+
+@layer components {
+	.welsglobal-woocommerce .woocommerce {
+		color: var(--color-brand-navy);
+	}
+
+	.welsglobal-woocommerce .woocommerce-info,
+	.welsglobal-woocommerce .woocommerce-message,
+	.welsglobal-woocommerce .woocommerce-error {
+		margin-bottom: 1.5rem;
+		border: 1px solid #e2e8f0;
+		border-top: 3px solid var(--color-brand-blue);
+		border-radius: 1rem;
+		background: white;
+		padding: 1rem 1.25rem;
+	}
+
+	.welsglobal-woocommerce table.shop_table {
+		width: 100%;
+		overflow: hidden;
+		border: 1px solid #e2e8f0;
+		border-radius: 1.25rem;
+		background: white;
+	}
+
+	.welsglobal-woocommerce table.shop_table th,
+	.welsglobal-woocommerce table.shop_table td {
+		border-bottom: 1px solid #e2e8f0;
+		padding: 1rem;
+		text-align: left;
+	}
+
+	.welsglobal-woocommerce input.input-text,
+	.welsglobal-woocommerce input.qty,
+	.welsglobal-woocommerce select,
+	.welsglobal-woocommerce textarea {
+		border: 1px solid #cbd5e1;
+		border-radius: 0.75rem;
+		background: white;
+		padding: 0.75rem 1rem;
+		outline: none;
+	}
+
+	.welsglobal-woocommerce input:focus,
+	.welsglobal-woocommerce select:focus,
+	.welsglobal-woocommerce textarea:focus {
+		border-color: var(--color-brand-blue);
+		box-shadow: 0 0 0 4px rgb(23 36 31 / 0.1);
+	}
+
+	.welsglobal-woocommerce button.button,
+	.welsglobal-woocommerce a.button,
+	.welsglobal-woocommerce #place_order {
+		border: 0;
+		border-radius: 9999px;
+		background: var(--color-brand-gold);
+		padding: 0.9rem 1.5rem;
+		font-weight: 800;
+		color: var(--color-brand-navy);
+	}
+
+	.welsglobal-woocommerce .cart_totals,
+	.welsglobal-woocommerce #customer_details,
+	.welsglobal-woocommerce #order_review {
+		margin-top: 1.5rem;
+		border: 1px solid #e2e8f0;
+		border-radius: 1.5rem;
+		background: white;
+		padding: 1.5rem;
+	}
+
+	@media (max-width: 767px) {
+		.welsglobal-woocommerce table.shop_table_responsive tr {
+			display: block;
+			padding: 0.75rem;
+		}
+
+		.welsglobal-woocommerce table.shop_table_responsive td {
+			display: flex;
+			justify-content: space-between;
+			gap: 1rem;
+		}
 	}
 }

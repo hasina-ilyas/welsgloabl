@@ -1,0 +1,1 @@
+2026-07-20T11:54:50+00:00 WARNING Email "admin_payment_gateway_enabled" failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"admin_payment_gateway_enabled","status":"failed","recipient":"admin","WELSGLOBAL_EBooks\CCAvenue_Gateway":null}

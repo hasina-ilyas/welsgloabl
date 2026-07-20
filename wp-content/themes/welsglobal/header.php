@@ -21,11 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <header class="relative z-50 border-b border-white/10 bg-brand-navy text-white">
 	<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 		<a class="group inline-flex items-center gap-3" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'WELSGLOBAL home', 'welsglobal' ); ?>">
-			<span class="grid size-10 place-items-center rounded-xl border border-brand-gold/40 bg-white/5 text-sm font-bold text-brand-gold transition group-hover:bg-white/10">WG</span>
-			<span>
-				<span class="block font-display text-lg font-bold tracking-[0.16em]">WELSGLOBAL</span>
-				<span class="block text-[9px] uppercase tracking-[0.32em] text-slate-400">Strategy that moves</span>
-			</span>
+			<img class="h-11 w-auto max-w-60 object-contain object-left" src="<?php echo esc_url( WELSGLOBAL_THEME_URL . '/assets/images/welsglobal-wordmark-white.svg' ); ?>" alt="<?php esc_attr_e( 'WELSGLOBAL LLC', 'welsglobal' ); ?>">
 		</a>
 		<nav class="hidden items-center gap-8 text-sm font-medium text-slate-300 lg:flex" aria-label="<?php esc_attr_e( 'Primary navigation', 'welsglobal' ); ?>">
 			<a class="transition hover:text-white" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'welsglobal' ); ?></a>
@@ -37,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a class="rounded-full border border-white/20 px-5 py-2.5 text-sm font-semibold transition hover:border-white/40 hover:bg-white/10" href="<?php echo esc_url( home_url( '/my-account/' ) ); ?>"><?php esc_html_e( 'My library', 'welsglobal' ); ?></a>
 			<a class="relative grid size-11 place-items-center rounded-full border border-white/20 transition hover:border-white/40 hover:bg-white/10" href="<?php echo esc_url( home_url( '/cart/' ) ); ?>" aria-label="<?php esc_attr_e( 'View cart', 'welsglobal' ); ?>">
 				<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
-				<span class="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-brand-gold text-[10px] font-black text-brand-navy" data-cart-count>0</span>
+				<span class="absolute -right-1 -top-1 grid size-5 place-items-center rounded-full bg-brand-gold text-[10px] font-black text-brand-navy" data-cart-count><?php echo esc_html( function_exists( 'WC' ) && WC()->cart ? WC()->cart->get_cart_contents_count() : 0 ); ?></span>
 			</a>
 			<a class="rounded-full bg-brand-gold px-5 py-2.5 text-sm font-bold text-brand-navy transition hover:bg-amber-300" href="#collection"><?php esc_html_e( 'Explore eBooks', 'welsglobal' ); ?></a>
 		</div>

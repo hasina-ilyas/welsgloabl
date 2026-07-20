@@ -14,8 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
 		<div class="lg:col-span-2">
 			<div class="mb-5 inline-flex items-center gap-3">
-				<span class="grid size-10 place-items-center rounded-xl border border-brand-gold/40 text-sm font-bold text-brand-gold">WG</span>
-				<span class="font-display text-lg font-bold tracking-[0.16em]">WELSGLOBAL</span>
+				<img class="h-12 w-auto max-w-64 object-contain object-left" src="<?php echo esc_url( WELSGLOBAL_THEME_URL . '/assets/images/welsglobal-wordmark-white.svg' ); ?>" alt="<?php esc_attr_e( 'WELSGLOBAL LLC', 'welsglobal' ); ?>">
 			</div>
 			<p class="max-w-md text-sm leading-7 text-slate-400"><?php esc_html_e( 'Practical strategy guides built from real-world execution—created to help ambitious leaders turn insight into measurable growth.', 'welsglobal' ); ?></p>
 		</div>

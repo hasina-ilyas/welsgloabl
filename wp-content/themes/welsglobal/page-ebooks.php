@@ -11,7 +11,7 @@ get_header();
 $ebooks = array(
 	array(
 		'title'       => __( 'Content Marketing Plan & Strategies', 'welsglobal' ),
-		'eyebrow'     => __( 'Content Strategy', 'welsglobal' ),
+		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
 		'description' => __( 'Build a focused content engine that attracts the right audience, earns trust, and turns attention into measurable business growth.', 'welsglobal' ),
 		'price'       => '15',
 		'color'       => 'from-[#126aa8] via-[#0a477c] to-[#061b35]',
@@ -35,7 +35,7 @@ $ebooks = array(
 	),
 	array(
 		'title'       => __( 'Social Media Marketing Strategy', 'welsglobal' ),
-		'eyebrow'     => __( 'Social Media', 'welsglobal' ),
+		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
 		'description' => __( 'Stop posting without purpose. Design a repeatable social strategy that connects brand goals, compelling content, and audience action.', 'welsglobal' ),
 		'price'       => '25',
 		'color'       => 'from-[#bc64b4] via-[#71366e] to-[#281128]',
@@ -121,16 +121,6 @@ $ebooks = array(
 				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Digital Marketing" aria-pressed="false">
 					<span class="size-2 rounded-full bg-amber-400"></span>
 					<?php esc_html_e( 'Digital marketing', 'welsglobal' ); ?>
-					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
-				</button>
-				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Content Strategy" aria-pressed="false">
-					<span class="size-2 rounded-full bg-cyan-400"></span>
-					<?php esc_html_e( 'Content strategy', 'welsglobal' ); ?>
-					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
-				</button>
-				<button class="group/filter inline-flex shrink-0 items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-brand-navy" type="button" data-ebook-filter="Social Media" aria-pressed="false">
-					<span class="size-2 rounded-full bg-fuchsia-400"></span>
-					<?php esc_html_e( 'Social media', 'welsglobal' ); ?>
 					<span class="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500" data-filter-count>1</span>
 				</button>
 			</div>
