@@ -11,11 +11,12 @@ $catalog = array(
 		'title'       => __( 'Content Marketing Plan & Strategies', 'welsglobal' ),
 		'category'    => __( 'Digital Marketing', 'welsglobal' ),
 		'price'       => 15,
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/content-marketing-plan-and-strategies-ebook.png',
 		'color'       => 'from-[#126aa8] via-[#0a477c] to-[#061b35]',
 		'accent'      => 'text-[#76dcff]',
 		'mark'        => 'CM',
-		'description' => __( 'A practical guide to building a focused content engine that earns attention, develops trust, and turns useful ideas into measurable business growth.', 'welsglobal' ),
-		'long'        => __( 'Move beyond random publishing and create a content system connected to real business goals. This guide takes you from audience understanding and strategic positioning to channel planning, production, distribution, and performance measurement.', 'welsglobal' ),
+		'description' => __( 'A practical, step-by-step guide to creating high-impact content strategies that attract attention, nurture relationships, and convert audiences into loyal customers.', 'welsglobal' ),
+		'long'        => __( 'Explore the future of content, audience psychology, effective formats, customer profiling, competitor analysis, the Seven Ps of Marketing, SEO, outreach, paid media, and social promotion. This guide provides the tools and tactical plans needed to turn content into a measurable growth engine.', 'welsglobal' ),
 		'outcomes'    => array(
 			__( 'Define clear content goals and meaningful performance indicators.', 'welsglobal' ),
 			__( 'Build audience profiles that guide stronger content decisions.', 'welsglobal' ),
@@ -27,11 +28,12 @@ $catalog = array(
 		'title'       => __( 'The Beginner’s Guide to Digital Marketing Strategies', 'welsglobal' ),
 		'category'    => __( 'Digital Marketing', 'welsglobal' ),
 		'price'       => 40,
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/digital-marketing-strategies-ebook.png',
 		'color'       => 'from-[#e7b54d] via-[#a96812] to-[#3b2107]',
 		'accent'      => 'text-amber-100',
 		'mark'        => 'DM',
-		'description' => __( 'A clear, practical roadmap for understanding digital channels, reaching the right audience, and building campaigns that support sustainable business results.', 'welsglobal' ),
-		'long'        => __( 'Digital marketing does not need to feel overwhelming. This guide brings the essential channels and strategic decisions into one straightforward system—helping you choose priorities, connect campaigns, communicate value, and improve performance with confidence.', 'welsglobal' ),
+		'description' => __( 'A clear, practical foundation for navigating modern digital marketing and connecting online tactics to meaningful business goals.', 'welsglobal' ),
+		'long'        => __( 'Move step by step from current trends and objective setting to opportunity research, brand building, advertising, SEO, social media, and paid promotion. Whether you are new to marketing or sharpening an existing approach, this guide helps you build smarter campaigns with measurable results.', 'welsglobal' ),
 		'outcomes'    => array(
 			__( 'Understand how core digital marketing channels work together.', 'welsglobal' ),
 			__( 'Set realistic goals connected to business priorities.', 'welsglobal' ),
@@ -43,11 +45,12 @@ $catalog = array(
 		'title'       => __( 'Social Media Marketing Strategy', 'welsglobal' ),
 		'category'    => __( 'Digital Marketing', 'welsglobal' ),
 		'price'       => 25,
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/social-media-marketing-strategy-ebook.png',
 		'color'       => 'from-[#bc64b4] via-[#71366e] to-[#281128]',
 		'accent'      => 'text-fuchsia-100',
 		'mark'        => 'SM',
-		'description' => __( 'A focused framework for replacing random posts with a repeatable social strategy that connects brand goals, valuable content, and audience action.', 'welsglobal' ),
-		'long'        => __( 'Build a social presence with purpose. This guide helps you identify the role of each platform, define content pillars, plan consistent publishing, strengthen community engagement, and connect activity to outcomes your business can measure.', 'welsglobal' ),
+		'description' => __( 'A clear, practical foundation for building smarter social media strategies that support brand discovery, community growth, ecommerce, and customer loyalty.', 'welsglobal' ),
+		'long'        => __( 'Learn the core elements of effective social marketing, including platform ecosystems, audience behaviour, objective setting, content creation, creator partnerships, paid campaigns, community management, and performance measurement. A bonus budget-planning template helps forecast spend and track platform performance.', 'welsglobal' ),
 		'outcomes'    => array(
 			__( 'Select social platforms based on strategic fit.', 'welsglobal' ),
 			__( 'Develop useful content pillars and a sustainable cadence.', 'welsglobal' ),
@@ -82,28 +85,7 @@ get_header();
 		<div class="relative isolate rounded-[2rem] bg-[#edf1f5] px-8 py-12 sm:px-14 sm:py-16">
 			<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_18%,white,transparent_58%)]"></div>
 			<div class="absolute bottom-9 left-1/2 -z-10 h-10 w-1/2 -translate-x-1/2 rounded-full bg-brand-navy/25 blur-2xl"></div>
-			<div class="relative mx-auto aspect-[3/4.2] max-w-[18rem] transition duration-500 hover:-translate-y-1 hover:rotate-[-1deg]">
-				<div class="absolute -right-3 bottom-1 top-1 w-7 rounded-r-lg bg-gradient-to-r from-slate-400 via-slate-200 to-white shadow-lg"></div>
-				<div class="absolute -bottom-3 left-3 right-0 h-5 skew-x-[38deg] rounded-b bg-slate-300"></div>
-				<div class="relative h-full overflow-hidden rounded-l-sm rounded-r-lg bg-gradient-to-br <?php echo esc_attr( $ebook['color'] ); ?> p-7 text-white shadow-[18px_22px_35px_rgba(7,26,51,.35)]">
-					<div class="absolute -right-20 -top-20 size-56 rounded-full border-[34px] border-white/10"></div>
-					<div class="absolute -bottom-12 -left-12 size-40 rotate-45 border-[22px] border-white/10"></div>
-					<div class="relative flex h-full flex-col">
-						<div class="flex items-center justify-between">
-							<span class="text-[9px] font-extrabold uppercase tracking-[.28em] <?php echo esc_attr( $ebook['accent'] ); ?>">WELSGLOBAL</span>
-							<span class="grid size-10 place-items-center rounded-full border border-white/25 bg-black/10 text-[10px] font-black"><?php echo esc_html( $ebook['mark'] ); ?></span>
-						</div>
-						<div class="mt-auto">
-							<span class="mb-3 block text-[9px] font-bold uppercase tracking-[.22em] <?php echo esc_attr( $ebook['accent'] ); ?>"><?php echo esc_html( $ebook['category'] ); ?></span>
-							<h1 class="font-display text-3xl font-bold leading-[1.05]"><?php echo esc_html( $ebook['title'] ); ?></h1>
-							<div class="mt-7 flex items-center justify-between border-t border-white/20 pt-4">
-								<span class="text-[9px] uppercase tracking-[.2em] opacity-75"><?php esc_html_e( 'Executive Strategy Series', 'welsglobal' ); ?></span>
-								<span class="font-display text-xl font-bold opacity-50"><?php echo esc_html( $ebook_id ); ?></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<img class="relative mx-auto aspect-[3/4.2] max-w-[18rem] object-contain drop-shadow-2xl transition duration-500 hover:-translate-y-1 hover:rotate-[-1deg]" src="<?php echo esc_url( $ebook['image'] ); ?>" alt="<?php echo esc_attr( sprintf( __( '%s eBook cover', 'welsglobal' ), $ebook['title'] ) ); ?>">
 		</div>
 
 		<div>
@@ -192,7 +174,7 @@ get_header();
 			<?php foreach ( $catalog as $related_id => $related ) : ?>
 				<?php if ( $related_id === $ebook_id ) { continue; } ?>
 				<a class="group flex items-center gap-5 rounded-3xl border border-slate-200 p-5 transition hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-card" href="<?php echo esc_url( home_url( '/ebook-details/?ebook=' . $related_id ) ); ?>">
-					<span class="grid size-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br <?php echo esc_attr( $related['color'] ); ?> font-display text-sm font-bold text-white shadow-lg"><?php echo esc_html( $related['mark'] ); ?></span>
+					<img class="size-16 shrink-0 rounded-xl object-contain drop-shadow-md" src="<?php echo esc_url( $related['image'] ); ?>" alt="" loading="lazy">
 					<span class="min-w-0 flex-1">
 						<span class="text-[10px] font-bold uppercase tracking-[.16em] text-brand-blue"><?php echo esc_html( $related['category'] ); ?></span>
 						<strong class="mt-1 block font-display text-lg leading-snug text-brand-navy group-hover:text-brand-blue"><?php echo esc_html( $related['title'] ); ?></strong>

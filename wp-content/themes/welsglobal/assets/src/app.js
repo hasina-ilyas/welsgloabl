@@ -270,20 +270,72 @@ if (checkoutPage) {
 	};
 	paymentRadios.forEach((radio) => radio.addEventListener('change', updatePaymentMethod));
 
-	const cryptoNetworks = { USDT: 'TRC20', BTC: 'Bitcoin Network', ETH: 'Ethereum (ERC20)' };
+	const cryptoWallets = {
+		TRX: {
+			title: 'TRON · TRX',
+			address: 'TNAXyfTgARcX4BCTAwyEvyEnSbZN4Q8EMK',
+			color: '#df2f36',
+			icon: 'TRX',
+			note: 'Send only TRX on the TRON network to this address.',
+		},
+		BNB: {
+			title: 'BNB · BEP-20',
+			address: '0x938C5663d2a005deB054129911Fdc8F34E84AafA',
+			color: '#b68b23',
+			icon: 'BNB',
+			note: 'Send only BNB using the BNB Smart Chain (BEP-20) network.',
+		},
+		ETH: {
+			title: 'ETHEREUM · ERC-20',
+			address: '0x938C5663d2a005deB054129911Fdc8F34E84AafA',
+			color: '#4965d6',
+			icon: 'ETH',
+			note: 'Send only ETH using the Ethereum (ERC-20) network.',
+		},
+	};
 	const cryptoSelect = checkoutPage.querySelector('[data-crypto-select]');
-	cryptoSelect.addEventListener('change', () => {
-		checkoutPage.querySelector('[data-crypto-network]').textContent = cryptoNetworks[cryptoSelect.value];
-	});
+	const walletCard = checkoutPage.querySelector('[data-wallet-card]');
+	const walletTitle = checkoutPage.querySelector('[data-wallet-title]');
+	const walletAddress = checkoutPage.querySelector('[data-wallet-address]');
+	const walletIcon = checkoutPage.querySelector('[data-wallet-icon]');
+	const walletNote = checkoutPage.querySelector('[data-wallet-note]');
+	const walletQr = checkoutPage.querySelector('[data-wallet-qr]');
+
+	const renderWallet = () => {
+		const wallet = cryptoWallets[cryptoSelect.value] || cryptoWallets.TRX;
+		walletTitle.textContent = wallet.title;
+		walletAddress.textContent = wallet.address;
+		walletIcon.textContent = wallet.icon;
+		walletNote.textContent = wallet.note;
+		walletTitle.style.color = wallet.color;
+		walletIcon.style.backgroundColor = wallet.color;
+		walletCard.style.borderLeftColor = wallet.color;
+		walletQr.replaceChildren();
+
+		if (window.jQuery?.fn?.qrcode) {
+			window.jQuery(walletQr).qrcode({
+				text: wallet.address,
+				width: 176,
+				height: 176,
+				correctLevel: 2,
+				background: '#ffffff',
+				foreground: '#000000',
+			});
+		}
+	};
+	cryptoSelect.addEventListener('change', renderWallet);
 
 	checkoutPage.querySelector('[data-copy-wallet]').addEventListener('click', (event) => {
-		const wallet = checkoutPage.querySelector('[data-wallet-address]').textContent;
+		const wallet = walletAddress.textContent;
+		const label = event.currentTarget.querySelector('[data-copy-wallet-label]');
 		navigator.clipboard?.writeText(wallet);
-		event.currentTarget.textContent = 'Copied';
-		window.setTimeout(() => { event.currentTarget.textContent = 'Copy'; }, 1200);
+		if (label) label.textContent = 'Address copied';
+		window.setTimeout(() => {
+			if (label) label.textContent = 'Click to copy address';
+		}, 1200);
 	});
 
-	form.addEventListener('submit', (event) => {
+	form.addEventListener('submit', async (event) => {
 		event.preventDefault();
 		const errorBox = checkoutPage.querySelector('[data-checkout-error]');
 		const invalidFields = Array.from(form.querySelectorAll(':invalid'));
@@ -308,6 +360,53 @@ if (checkoutPage) {
 
 		const method = form.querySelector('[name="payment_method"]:checked').value;
 		const email = form.querySelector('[name="email"]').value;
+
+		if (method === 'card') {
+			const checkoutConfig = window.welsglobalCheckout || {};
+			const submitButton = form.querySelector('[data-place-order]');
+			const submitLabel = form.querySelector('[data-place-order-label]');
+			const originalLabel = submitLabel?.textContent || 'Place secure order';
+
+			if (!checkoutConfig.ajaxUrl || !checkoutConfig.nonce) {
+				errorBox.textContent = 'Checkout security configuration is unavailable. Please refresh the page and try again.';
+				errorBox.classList.remove('hidden');
+				return;
+			}
+
+			const payload = new FormData(form);
+			payload.set('action', 'welsglobal_create_checkout_order');
+			payload.set('nonce', checkoutConfig.nonce);
+			payload.set('terms', form.querySelector('[name="terms"]').checked ? '1' : '0');
+			payload.set('items', JSON.stringify(items.map((item) => ({
+				id: String(item.id),
+				quantity: Number(item.quantity),
+			}))));
+
+			submitButton.disabled = true;
+			if (submitLabel) submitLabel.textContent = 'Connecting to CCAvenue…';
+
+			try {
+				const response = await fetch(checkoutConfig.ajaxUrl, {
+					method: 'POST',
+					body: payload,
+					credentials: 'same-origin',
+				});
+				const result = await response.json();
+
+				if (!response.ok || !result.success || !result.data?.redirect) {
+					throw new Error(result.data?.message || 'CCAvenue could not prepare the payment. Please try again.');
+				}
+
+				window.location.assign(result.data.redirect);
+			} catch (error) {
+				errorBox.textContent = error.message || 'CCAvenue could not prepare the payment. Please try again.';
+				errorBox.classList.remove('hidden');
+				submitButton.disabled = false;
+				if (submitLabel) submitLabel.textContent = originalLabel;
+			}
+			return;
+		}
+
 		const reference = `WG-${Date.now().toString().slice(-8)}`;
 		const orderData = {
 			reference,
@@ -322,6 +421,7 @@ if (checkoutPage) {
 	});
 
 	updatePaymentMethod();
+	renderWallet();
 }
 
 const thankYouPage = document.querySelector('[data-thank-you-page]');

@@ -47,7 +47,7 @@ Last updated: 2026-07-20
 
 - [x] Add Tailwind CSS and build dependencies.
 - [x] Configure template and PHP content scanning.
-- [~] Add initial WELSGLOBAL colors, typography, spacing, shadows, and breakpoints; confirm against the official brand guide when supplied.
+- [x] Add WELSGLOBAL colors, verified live-site typography, spacing, shadows, and responsive breakpoints.
 - [x] Create the source stylesheet.
 - [x] Add development and production build scripts.
 - [x] Build and enqueue the production stylesheet.
@@ -63,12 +63,14 @@ Primary reference: `https://welsglobal.com/ebooks/`
 - [x] Replace the temporary `WG` logo treatment across the header and footer.
 - [x] Map the supplied forest-green, white, and warm-beige identity to reusable Tailwind theme tokens.
 - [x] Replace the estimated forest colors with the pixel-verified logo charcoal (`#17241f`) and deep charcoal (`#162420`) across the website and branded emails.
-- [x] Identify and document the closest heading, body, and accent typography pending official font specifications.
+- [x] Verify and apply the live-site typography: Marcellus for display headings and Montserrat for body/interface text.
 - [x] Standardize the initial buttons, labels, cards, borders, shadows, spacing, and interaction states.
 - [x] Align the eBook section heading and supporting copy with “The WelsGlobal Executive Strategy Series.”
 - [x] Correct all three product categories to match the official live catalog metadata.
 - [x] Verify and use the official product titles and prices.
-- [~] Obtain or recreate approved product-cover assets based on the official source material.
+- [x] Import and apply the three supplied official product-cover assets across the catalog, detail pages, related products, and WooCommerce records.
+- [x] Replace all three product covers with the latest transparent 1080px assets supplied on July 21, 2026.
+- [x] Align the three local product descriptions and prices with the supplied live WELSGLOBAL product pages.
 - [x] Add the verified author information for Wella Mañabo to the detail experience.
 - [!] Confirm whether the “complimentary Content Marketing Workbook with every purchase” offer applies to this assessment store.
 - [ ] If approved, add the workbook offer consistently to landing, detail, cart, checkout, and thank-you pages.
@@ -124,6 +126,7 @@ Primary reference: `https://welsglobal.com/ebooks/`
 - [x] Redirect successful frontend checkout submissions to the thank-you page.
 - [x] Add trust and secure-payment indicators.
 - [x] Restore the original custom Tailwind cart and checkout screen designs while retaining the current brand palette and logo.
+- [x] Connect the restored custom checkout card option to server-side WooCommerce order creation and the CCAvenue hosted-payment redirect.
 - [!] Connect real CC Avenue redirection after merchant credentials are supplied.
 - [!] Store crypto submissions and orders server-side after wallet configuration is supplied.
 
@@ -133,6 +136,7 @@ Primary reference: `https://welsglobal.com/ebooks/`
 - [x] Add administrator-controlled network and wallet address configuration.
 - [!] Calculate and display the payable crypto amount after the approved conversion source and pricing rules are supplied.
 - [~] Display configured wallet details; production QR generation follows after wallet approval.
+- [x] Add dynamic, scannable TRON, BNB Smart Chain, and Ethereum QR wallet cards to the custom checkout using the supplied wallet references.
 - [~] Add copy-to-clipboard interactions to the custom prototype; connect them to the WooCommerce gateway after wallet approval.
 - [x] Collect buyer details through WooCommerce and collect the transaction hash in the crypto gateway.
 - [x] Validate, sanitize, and securely store submissions in WooCommerce order metadata.

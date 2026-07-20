@@ -130,23 +130,26 @@ get_header();
 						<label class="block">
 							<span class="mb-2 block text-xs font-bold text-brand-navy"><?php esc_html_e( 'Select cryptocurrency', 'welsglobal' ); ?></span>
 							<select class="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm outline-none focus:border-brand-blue" name="cryptocurrency" data-crypto-select>
-								<option value="USDT">USDT</option>
-								<option value="BTC">Bitcoin (BTC)</option>
-								<option value="ETH">Ethereum (ETH)</option>
+								<option value="TRX"><?php esc_html_e( 'TRON (TRX)', 'welsglobal' ); ?></option>
+								<option value="BNB"><?php esc_html_e( 'BNB (BEP-20)', 'welsglobal' ); ?></option>
+								<option value="ETH"><?php esc_html_e( 'Ethereum (ERC-20)', 'welsglobal' ); ?></option>
 							</select>
 						</label>
-						<div class="grid gap-4 sm:grid-cols-[1fr_auto]">
-							<div class="rounded-xl bg-white p-4">
-								<span class="text-[10px] font-bold uppercase tracking-wider text-slate-500"><?php esc_html_e( 'Network', 'welsglobal' ); ?></span>
-								<strong class="mt-1 block text-sm text-brand-navy" data-crypto-network>TRC20</strong>
-								<span class="mt-4 block text-[10px] font-bold uppercase tracking-wider text-slate-500"><?php esc_html_e( 'Wallet address', 'welsglobal' ); ?></span>
-								<div class="mt-1 flex items-center gap-2">
-									<code class="min-w-0 flex-1 truncate text-xs text-brand-navy" data-wallet-address>Wallet provided at order confirmation</code>
-									<button class="text-xs font-bold text-brand-blue" type="button" data-copy-wallet><?php esc_html_e( 'Copy', 'welsglobal' ); ?></button>
+						<div class="grid overflow-hidden rounded-3xl border border-slate-200 border-l-4 bg-white shadow-sm md:grid-cols-[auto_1fr]" data-wallet-card>
+							<div class="grid place-items-center border-b border-slate-200 p-5 md:border-b-0 md:border-r md:p-7">
+								<div class="relative grid size-56 place-items-center rounded-2xl border border-slate-200 bg-white p-4">
+									<div class="size-44" data-wallet-qr aria-label="<?php esc_attr_e( 'Scannable wallet QR code', 'welsglobal' ); ?>"></div>
+									<span class="absolute left-1/2 top-1/2 grid size-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-lg border-4 border-white text-xs font-black text-white shadow-md" data-wallet-icon>TRX</span>
 								</div>
 							</div>
-							<div class="grid size-28 place-items-center rounded-xl border border-slate-200 bg-white p-3 text-center">
-								<svg class="size-16 text-brand-navy/70" viewBox="0 0 64 64" fill="currentColor" aria-label="<?php esc_attr_e( 'QR code placeholder', 'welsglobal' ); ?>"><path d="M4 4h22v22H4zm5 5v12h12V9zM38 4h22v22H38zm5 5v12h12V9zM4 38h22v22H4zm5 5v12h12V43zM33 32h7v7h-7zm9 0h7v7h-7zm9 0h9v7h-9zM32 42h7v18h-7zm10 0h7v7h-7zm9 0h9v7h-9zm-9 11h7v7h-7zm10 0h8v7h-8z"/></svg>
+							<div class="flex min-w-0 flex-col justify-center p-6 sm:p-8">
+								<p class="font-display text-xl font-black tracking-wide" data-wallet-title>TRON · TRX</p>
+								<p class="mt-6 text-xs font-bold uppercase tracking-[.18em] text-slate-500"><?php esc_html_e( 'Scan to pay', 'welsglobal' ); ?></p>
+								<button class="mt-4 w-full rounded-2xl bg-slate-100 p-5 text-left transition hover:bg-slate-200" type="button" data-copy-wallet>
+									<code class="block break-all text-sm font-bold leading-7 text-brand-navy" data-wallet-address></code>
+									<span class="mt-3 block text-xs font-bold text-emerald-600" data-copy-wallet-label><?php esc_html_e( 'Click to copy address', 'welsglobal' ); ?></span>
+								</button>
+								<p class="mt-4 text-xs leading-6 text-slate-500" data-wallet-note><?php esc_html_e( 'Send only TRX on the TRON network to this address.', 'welsglobal' ); ?></p>
 							</div>
 						</div>
 						<label class="block">
