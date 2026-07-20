@@ -12,7 +12,8 @@ $ebooks = array(
 	array(
 		'title'       => __( 'Content Marketing Plan & Strategies', 'welsglobal' ),
 		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
-		'description' => __( 'Build a focused content engine that attracts the right audience, earns trust, and turns attention into measurable business growth.', 'welsglobal' ),
+		'description' => __( 'A practical blueprint for researching opportunities, understanding audiences, selecting effective formats, and turning valuable content into measurable business growth.', 'welsglobal' ),
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/content-marketing-plan-and-strategies-ebook.png',
 		'price'       => '15',
 		'color'       => 'from-[#126aa8] via-[#0a477c] to-[#061b35]',
 		'accent'      => 'text-[#76dcff]',
@@ -24,7 +25,8 @@ $ebooks = array(
 	array(
 		'title'       => __( 'The Beginner’s Guide to Digital Marketing Strategies', 'welsglobal' ),
 		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
-		'description' => __( 'Turn digital complexity into a clear roadmap with practical frameworks for channels, campaigns, audiences, and sustainable results.', 'welsglobal' ),
+		'description' => __( 'A beginner-friendly foundation for setting objectives, researching opportunities, building a strong brand, and promoting campaigns through SEO, social media, and paid channels.', 'welsglobal' ),
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/digital-marketing-strategies-ebook.png',
 		'price'       => '40',
 		'color'       => 'from-[#e7b54d] via-[#a96812] to-[#3b2107]',
 		'accent'      => 'text-amber-100',
@@ -36,7 +38,8 @@ $ebooks = array(
 	array(
 		'title'       => __( 'Social Media Marketing Strategy', 'welsglobal' ),
 		'eyebrow'     => __( 'Digital Marketing', 'welsglobal' ),
-		'description' => __( 'Stop posting without purpose. Design a repeatable social strategy that connects brand goals, compelling content, and audience action.', 'welsglobal' ),
+		'description' => __( 'A step-by-step guide to platform strategy, audience behaviour, compelling content, creator partnerships, paid campaigns, community management, and performance measurement.', 'welsglobal' ),
+		'image'       => WELSGLOBAL_THEME_URL . '/assets/images/social-media-marketing-strategy-ebook.png',
 		'price'       => '25',
 		'color'       => 'from-[#bc64b4] via-[#71366e] to-[#281128]',
 		'accent'      => 'text-fuchsia-100',
@@ -82,8 +85,9 @@ $ebooks = array(
 			<div class="absolute -inset-4 rotate-3 rounded-[2.5rem] border border-white/10 bg-white/5"></div>
 			<div class="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-7">
 				<div class="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)]">
-					<div class="aspect-[3/4.25] w-40 justify-self-center rounded-xl bg-gradient-to-br from-[#7a4b14] via-[#d9a441] to-[#392307] p-4 shadow-2xl sm:w-auto">
-						<div class="flex h-full flex-col border border-white/25 p-3">
+					<div class="relative aspect-[3/4.25] w-40 justify-self-center sm:w-auto">
+						<img class="h-full w-full object-contain drop-shadow-2xl" src="<?php echo esc_url( WELSGLOBAL_THEME_URL . '/assets/images/digital-marketing-strategies-ebook.png' ); ?>" alt="<?php esc_attr_e( 'The Beginner’s Guide to Digital Marketing Strategies eBook cover', 'welsglobal' ); ?>">
+						<div class="hidden">
 							<span class="text-[8px] font-bold uppercase tracking-[.25em] text-amber-100">WELSGLOBAL</span>
 							<span class="mt-auto font-display text-lg font-bold leading-tight">Digital Marketing Strategies</span>
 							<span class="mt-3 text-[9px] uppercase tracking-wider text-amber-100">Executive Series · 02</span>
@@ -138,30 +142,7 @@ $ebooks = array(
 					<div class="relative isolate overflow-hidden rounded-2xl bg-[#edf1f5] px-7 py-8 sm:px-10 sm:py-10">
 						<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_20%,white,transparent_55%)]"></div>
 						<div class="absolute bottom-5 left-1/2 -z-10 h-8 w-3/5 -translate-x-1/2 rounded-full bg-brand-navy/25 blur-xl"></div>
-						<div class="relative mx-auto aspect-[3/4.2] max-w-[15rem] transition duration-500 group-hover:-translate-y-1 group-hover:rotate-[-1deg]">
-							<div class="absolute -right-2 bottom-1 top-1 w-5 rounded-r-md bg-gradient-to-r from-slate-400 to-white shadow-lg"></div>
-							<div class="absolute -bottom-2 left-2 right-0 h-4 skew-x-[38deg] rounded-b bg-slate-300"></div>
-							<div class="relative h-full overflow-hidden rounded-l-sm rounded-r-md bg-gradient-to-br <?php echo esc_attr( $ebook['color'] ); ?> p-5 text-white shadow-[13px_17px_24px_rgba(7,26,51,.32)]">
-								<div class="absolute -right-16 -top-16 size-44 rounded-full border-[28px] border-white/10"></div>
-								<div class="absolute -bottom-10 -left-10 size-32 rotate-45 border-[18px] border-white/10"></div>
-								<div class="absolute right-5 top-1/2 h-px w-20 rotate-[-35deg] bg-white/25"></div>
-								<div class="relative flex h-full flex-col">
-									<div class="flex items-center justify-between">
-										<span class="text-[8px] font-extrabold uppercase tracking-[.25em] <?php echo esc_attr( $ebook['accent'] ); ?>">WELSGLOBAL</span>
-										<span class="grid size-8 place-items-center rounded-full border border-white/25 bg-black/10 text-[9px] font-black"><?php echo esc_html( $ebook['mark'] ); ?></span>
-									</div>
-									<div class="mt-7 h-0.5 w-10 <?php echo esc_attr( $ebook['glow'] ); ?>"></div>
-									<div class="mt-auto">
-										<span class="mb-2 block text-[8px] font-bold uppercase tracking-[.2em] <?php echo esc_attr( $ebook['accent'] ); ?>"><?php echo esc_html( $ebook['eyebrow'] ); ?></span>
-										<h3 class="max-w-[12rem] font-display text-xl font-bold leading-[1.08] sm:text-2xl"><?php echo esc_html( $ebook['title'] ); ?></h3>
-										<div class="mt-5 flex items-center justify-between border-t border-white/20 pt-3">
-											<span class="text-[8px] uppercase tracking-[.18em] opacity-75"><?php esc_html_e( 'Executive Series', 'welsglobal' ); ?></span>
-											<span class="font-display text-lg font-bold opacity-50"><?php echo esc_html( $ebook['number'] ); ?></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						<img class="relative mx-auto aspect-[3/4.2] max-w-[15rem] object-contain drop-shadow-2xl transition duration-500 group-hover:-translate-y-1 group-hover:rotate-[-1deg]" src="<?php echo esc_url( $ebook['image'] ); ?>" alt="<?php echo esc_attr( sprintf( __( '%s eBook cover', 'welsglobal' ), $ebook['title'] ) ); ?>" loading="lazy">
 					</div>
 					<div class="flex flex-1 flex-col px-1 pt-5">
 						<div class="flex items-center justify-between gap-4">

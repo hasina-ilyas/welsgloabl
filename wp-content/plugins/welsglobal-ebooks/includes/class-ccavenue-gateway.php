@@ -35,6 +35,7 @@ final class CCAvenue_Gateway extends \WC_Payment_Gateway {
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_api_wc_gateway_welsglobal_ccavenue_start', array( $this, 'start_payment' ) );
 		add_action( 'woocommerce_api_wc_gateway_welsglobal_ccavenue', array( $this, 'handle_response' ) );
 	}
 
@@ -127,8 +128,58 @@ final class CCAvenue_Gateway extends \WC_Payment_Gateway {
 
 		return array(
 			'result'   => 'success',
-			'redirect' => $order->get_checkout_payment_url( true ),
+			'redirect' => add_query_arg(
+				array(
+					'wc-api'   => 'WC_Gateway_Welsglobal_CCAvenue_Start',
+					'order_id' => $order->get_id(),
+					'key'      => $order->get_order_key(),
+				),
+				home_url( '/' )
+			),
 		);
+	}
+
+	/**
+	 * Render the protected CCAvenue handoff independently of the custom
+	 * checkout page template.
+	 *
+	 * @return void
+	 */
+	public function start_payment() {
+		$order_id = isset( $_GET['order_id'] ) ? absint( $_GET['order_id'] ) : 0;
+		$order_key = isset( $_GET['key'] ) ? wc_clean( wp_unslash( $_GET['key'] ) ) : '';
+		$order     = wc_get_order( $order_id );
+
+		if ( ! $order || ! hash_equals( $order->get_order_key(), $order_key ) || $this->id !== $order->get_payment_method() ) {
+			status_header( 403 );
+			wp_die(
+				esc_html__( 'This CCAvenue payment link is invalid or has expired.', 'welsglobal-ebooks' ),
+				esc_html__( 'Payment link error', 'welsglobal-ebooks' ),
+				array( 'response' => 403 )
+			);
+		}
+
+		nocache_headers();
+		?>
+		<!doctype html>
+		<html <?php language_attributes(); ?>>
+		<head>
+			<meta charset="<?php bloginfo( 'charset' ); ?>">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title><?php esc_html_e( 'Connecting to CCAvenue', 'welsglobal-ebooks' ); ?></title>
+			<style>
+				body{margin:0;background:#f4efe6;color:#17241f;font:16px/1.6 system-ui,sans-serif}
+				main{display:grid;min-height:100vh;place-items:center;padding:24px}
+				.welsglobal-ccavenue-redirect{max-width:560px;border:1px solid #d8dedb;border-radius:24px;background:#fff;padding:40px;text-align:center;box-shadow:0 18px 50px rgba(23,36,31,.12)}
+				.button{display:inline-block;border:0;border-radius:999px;background:#d7b98a;color:#17241f;padding:14px 28px;font-weight:800;cursor:pointer}
+			</style>
+		</head>
+		<body>
+			<main><?php $this->receipt_page( $order_id ); ?></main>
+		</body>
+		</html>
+		<?php
+		exit;
 	}
 
 	/**
